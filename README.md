@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Customowy Slider wraz z bardzo prostą stroną wizytówkową
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sam Slider został zaprojektowany z myślą, aby móc go wykorzystywać w przyszłości. Strona wizytówkowa została zrobiona pośpiesznie tylko aby móc pokazać slajder w użyciu i nie odzwierciedla ona pełni umiejętności, gdyż Slider był głównym celem projektu. Do stworzenia całego projektu została wykorzystana tylko biblioteka "prop-types" do sprawdzania typów przyjętych propów oraz wbudowana biblioteka lodash {debounce} do odwlekania wywołania funkcji, cała reszta została stworzona samodzielnie. Slider zawiera w sobie takie dość przydatne opcje jak:
 
-## Available Scripts
+### Kropki
 
-In the project directory, you can run:
+Kropki pokazują ilość slajdów oraz pełnią funkcję przycisku, który przenosi nas do wybranego slajdu. Możemy je włączyć bądź wyłączyć za pomocą prop _showDots_. Domyślną wartością jest: true.
 
-### `npm start`
+### Strzałki
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Za pomocą strzałek możemy zmieniać slajdy. Jezeli nie został nam ani jeden slajd z lewej bądź prawej strony to dana strzałka się wyłączy. Możemy je włączyć bądź wyłączyć za pomocą prop _showArrows_. Domyślną wartościa jest: true;
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Decydowanie o ilosci komponentów na dany slajd
 
-### `npm test`
+Mamy możliwość wpisania poprzez prop _amountOfItemsOnSlide_ ile podanych komponentów może znajdować się na jednym slajdzie. Na podstawie podanej wartości oraz ilości komponentów funkcja sliderCalculations() zwróci odpowiednią tablicę w której każdym elementem będzie kolejna tablica o długości _amountOfItemsOnSlide_. Domyślną wartością jest: 1;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Autoodtwarzanie
 
-### `npm run build`
+**(Opcja niestabilna)**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Możemy zainicjować przesuwanie się Slidera automatycznie za pomocą prop _autoPlay_. Domyślną wartością jest: false. Częstotliwość przesuwania się kolejnych slajdów możemy zmienić za pomoca prop _autoPlaySpeed_, która przyjmuje wartość w milisekundach. Domyślną wartością jest: 5000 (5 sekund).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Przesuwanie slajdera za pomocą gestów
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Slider możemy przesuwać za pomocą gestów przesuwania palcem po ekranie. Funkcja przydatna głównie dla użytkowników mobilnych. Zawsze zainicjowana bez możliwości wyłączenia. (Możliwa do wykorzystania tylko na urządzeniach mobilnych).

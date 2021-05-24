@@ -13,7 +13,13 @@ function App() {
       <Header />
       <WelcomeScreen />
       <About />
-      <Slider amountOfItemsOnSlide={1} showArrows={true} showDots={true}>
+      <Slider
+        amountOfItemsOnSlide={1}
+        showArrows={true}
+        showDots={true}
+        autoPlay={false}
+        autoPlaySpeed={5000}
+      >
         <OfferItem typeOfPlan={"free"} />
         <OfferItem typeOfPlan={"premium"} />
         <OfferItem typeOfPlan={"enterprice"} />

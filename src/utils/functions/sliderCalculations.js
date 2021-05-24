@@ -6,7 +6,7 @@ export const sliderCalculations = (components, amountToShowOnEachSlide) => {
   //making copy of components
   const componentsCopy = [...components];
   const sortedComponents = [];
-  //calculating amount of slides, needs to be ceild for remaining components
+  //calculating amount of slides, needs to be ceiled for remaining components
   const numberOfSlides = Math.ceil(components.length / amountToShowOnEachSlide);
   for (let i = 0; i < numberOfSlides; i++) {
     //push to sortedComponents array returned from splice method;

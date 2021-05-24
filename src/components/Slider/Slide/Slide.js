@@ -1,5 +1,4 @@
 import React from "react";
-import OfferItem from "../../OfferItem/OfferItem";
 import "./Slide.scss";
 const Slide = ({ number, arrayOfComponents }) => {
   return (

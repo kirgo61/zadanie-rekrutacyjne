@@ -9,14 +9,12 @@
   height: 40px;
   cursor: pointer;
   z-index: 1000;
-  // z-index: 200;
-  // overflow: hidden;
+
   &-bar {
     height: 20%;
     width: 100%;
     background-color: whitesmoke;
     border-radius: 10px;
-    // z-index: 200;
   }
 }
 .backdrop {
@@ -32,7 +30,6 @@
   right: 0;
   top: 70px;
   width: 300px;
-  // min-height: 300px;
   background-color: white;
   transition: 0.7s;
   z-index: 1000;
@@ -42,12 +39,10 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    // background-color: wheat;
     &__option {
       display: flex;
       align-items: center;
       cursor: pointer;
-      // height: 30px;
       text-align: center;
       font-family: "Big Shoulders Display", cursive;
       font-weight: 300;

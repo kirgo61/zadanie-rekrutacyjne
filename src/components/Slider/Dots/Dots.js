@@ -1,5 +1,4 @@
 import React from "react";
-import SingleDot from "./SingleDot/SingleDot";
 import "./Dots.scss";
 const Dots = ({ numberOfSlides, moveSlideWithDot, currentSlide, showDots }) => {
   const arrayForMap = [];

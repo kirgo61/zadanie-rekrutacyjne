@@ -2,8 +2,6 @@
   text-align: center;
   display: flex;
   justify-content: center;
-  // height: 80vh;
-  // height: auto;
   padding: 30px;
   align-items: center;
   background-position: center;
@@ -14,15 +12,11 @@
     align-items: center;
     text-align: right;
     width: 60%;
-
     justify-content: space-between;
   }
   &__subtitle {
     display: inline-block;
     font-family: "Montserrat", sans-serif;
-    // margin-left: 10px;
-    // width: auto;
-    // text-align: center;
   }
   &__title {
     font-family: "Big Shoulders Display", cursive;
@@ -34,33 +28,23 @@
     text-transform: capitalize;
   }
   &__description {
-    // margin-left: 50px;
     font-size: 1.5rem;
     text-align: justify;
   }
   &-container {
     background-color: rgba(255, 255, 255, 0.75);
     width: 80%;
-    // height: 100%;
     margin: 50px 0;
     padding: 100px 0;
-    // margin: 30px;
-    // border: 5px solid whitesmoke;
-    // margin: 20px;
     display: flex;
     justify-content: center;
     &--1 {
-      // border: 1px solid black;
       width: 40%;
-      // margin-left: 10%;
       & .offer-item__button {
         display: none;
       }
     }
     &--2 {
-      // border: 1px solid black;
-      // margin-right: 10%;
-      // height: 100%;
       display: flex;
       justify-content: space-evenly;
       flex-direction: column;
@@ -70,10 +54,7 @@
   }
   .button {
     border: none;
-    // line-height: none;
     cursor: pointer;
-    // height: 50px;
-    // width: 100px;
     padding: 15px;
     background: #0c7ec5;
     border: 2px solid #095b8e;
@@ -119,10 +100,6 @@
     }
     &__description {
       font-size: 1.3rem;
-    }
-    &-container {
-      &--1 {
-      }
     }
   }
 }

@@ -12,11 +12,17 @@
   &__option {
     display: flex;
     align-items: center;
+    text-align: right;
+    width: 60%;
+
+    justify-content: space-between;
   }
   &__subtitle {
     display: inline-block;
     font-family: "Montserrat", sans-serif;
-    margin-left: 10px;
+    // margin-left: 10px;
+    // width: auto;
+    // text-align: center;
   }
   &__title {
     font-family: "Big Shoulders Display", cursive;
@@ -89,6 +95,11 @@
 .fa-check {
   font-size: 3rem;
   color: green;
+}
+.fa-times {
+  padding-right: 13px;
+  font-size: 3rem;
+  color: rgb(177, 10, 10);
 }
 
 .free {

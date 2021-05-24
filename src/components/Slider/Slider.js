@@ -5,15 +5,10 @@ import Dots from "./Dots/Dots";
 import { debounce } from "lodash";
 import { sliderCalculations } from "./../../utils/functions/sliderCalculations";
 import Arrows from "./Arrows/Arrows";
+import PropTypes from "prop-types";
 
 // style={{ transform: "translateX(-1285px)" }}
-const Slider = ({
-  children,
-  amountOfItemsOnSlide,
-  showDots,
-  showArrows,
-  autoplay,
-}) => {
+const Slider = ({ children, amountOfItemsOnSlide, showDots, showArrows }) => {
   // console.log(props.children);
   const sortedItems = sliderCalculations(
     children ? children : [],
@@ -23,6 +18,8 @@ const Slider = ({
   const [slideWidth, setSlideWidth] = useState(0);
   const [widthToTransform, setWidthToTranform] = useState(0);
   const [scrollBarWidth, setScrollBarWidth] = useState(0);
+  const [touchStart, setTouchStart] = React.useState(0);
+  const [touchEnd, setTouchEnd] = React.useState(0);
   const ref = useRef(null);
   useEffect(() => {
     setSlideWidth(ref.current ? ref.current.clientWidth : 0);
@@ -31,8 +28,7 @@ const Slider = ({
   let width = window.innerWidth;
 
   const changeSlideSizeToSkip = () => {
-    if (width === window.innerWidth) {
-    } else {
+    if (width !== window.innerWidth) {
       setSlideWidth(ref.current ? ref.current.clientWidth : 0);
       setScrollBarWidth(window.innerWidth - document.body.clientWidth);
       setCurrentSlide(1);
@@ -54,14 +50,46 @@ const Slider = ({
     setWidthToTranform(slideWidth * numberOfDot + scrollBarWidth * numberOfDot);
     setCurrentSlide(numberOfDot + 1);
   };
-
+  const touchStartHandler = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const touchMoveHandler = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  const touchEndHandler = () => {
+    console.log(touchStart - touchEnd);
+    if (
+      (touchStart - touchEnd > (window.innerWidth < 500 ? 25 : 75)) &
+      (currentSlide < sortedItems.length)
+    ) {
+      moveRight();
+    } else if (
+      touchStart - touchEnd < (window.innerWidth < 500 ? -25 : -75) &&
+      currentSlide > 1
+    ) {
+      moveLeft();
+    }
+  };
   let sliderStyles = {
     transform: `translateX(${widthToTransform * -1}px)`,
     transition: "1s",
   };
   return (
-    <div ref={ref} className="slider-container">
-      <div style={sliderStyles} className="slider" id="slider">
+    <div
+      // onTouchStart={(e) => touchStartHandler(e)}
+      // onTouchMove={(e) => touchMoveHandler(e)}
+      // onTouchEnd={() => touchEndHandler()}
+      ref={ref}
+      className="slider-container"
+    >
+      <div
+        onTouchStart={(e) => touchStartHandler(e)}
+        onTouchMove={(e) => touchMoveHandler(e)}
+        onTouchEnd={() => touchEndHandler()}
+        style={sliderStyles}
+        className="slider"
+        id="slider"
+      >
         {sortedItems.map((arrayOfComponents) => {
           return <Slide arrayOfComponents={arrayOfComponents} />;
         })}
@@ -82,6 +110,13 @@ const Slider = ({
       />
     </div>
   );
+};
+
+Slider.propTypes = {
+  children: PropTypes.array,
+  amountOfItemsOnSlide: PropTypes.number,
+  showArrows: PropTypes.bool,
+  showDots: PropTypes.bool,
 };
 
 export default Slider;

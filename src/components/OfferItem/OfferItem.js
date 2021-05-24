@@ -28,20 +28,38 @@ const OfferItem = ({ typeOfPlan }) => {
             <h3 className="offer-item__subtitle">Pariatur expedita dolore</h3>
           </span>
           <span className="offer-item__option">
-            <i className="fas fa-check"> </i>
-            <h3 className="offer-item__subtitle">Pariatur expedita dolore</h3>
+            {typeOfPlan === "free" ? (
+              <i className="fas fa-times"></i>
+            ) : (
+              <i className="fas fa-check"> </i>
+            )}
+            <h3 className="offer-item__subtitle">Dedicated resources</h3>
           </span>
           <span className="offer-item__option">
-            <i className="fas fa-check"> </i>
-            <h3 className="offer-item__subtitle">Pariatur expedita dolore</h3>
+            {typeOfPlan === "free" ? (
+              <i className="fas fa-times"></i>
+            ) : (
+              <i className="fas fa-check"> </i>
+            )}
+            <h3 className="offer-item__subtitle">Free SSL</h3>
           </span>
           <span className="offer-item__option">
-            <i className="fas fa-times"></i>
-            <h3 className="offer-item__subtitle">Pariatur expedita dolore</h3>
+            {typeOfPlan === "enterprice" ? (
+              <i className="fas fa-check"> </i>
+            ) : (
+              <i className="fas fa-times"></i>
+            )}
+            <h3 className="offer-item__subtitle">
+              Automated certificate management
+            </h3>
           </span>
           <span className="offer-item__option">
-            <i className="fas fa-times"></i>
-            <h3 className="offer-item__subtitle">Pariatur expedita dolore</h3>
+            {typeOfPlan === "enterprice" ? (
+              <i className="fas fa-check"> </i>
+            ) : (
+              <i className="fas fa-times"></i>
+            )}
+            <h3 className="offer-item__subtitle">Support 24/7</h3>
           </span>
           <div className="offer-item__button">
             <button className="button">Find out more!</button>

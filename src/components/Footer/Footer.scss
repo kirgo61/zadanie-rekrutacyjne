@@ -13,3 +13,8 @@
   padding-top: 100px;
   padding-bottom: 10px;
 }
+@media (max-width: 500px) {
+  .footer {
+    padding-top: 20px;
+  }
+}

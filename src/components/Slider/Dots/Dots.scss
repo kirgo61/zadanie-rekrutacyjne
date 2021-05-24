@@ -1,0 +1,32 @@
+.dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  margin: auto;
+}
+.single-dot {
+  height: 10px;
+  width: 10px;
+  margin-left: 10px;
+  border-radius: 200px;
+  background-color: white;
+  transition: 0.3s;
+}
+.active {
+  box-sizing: content-box;
+  background-color: salmon;
+
+  padding: 5px;
+  border: 1px solid rgb(247, 169, 161);
+}
+.disabled {
+  &:hover {
+    background-color: rgb(247, 169, 161);
+
+    transform: scale(1.4);
+  }
+}

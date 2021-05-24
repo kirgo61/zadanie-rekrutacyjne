@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Slider from "./components/Slider/Slider";
+import Header from "./components/Header/Header";
+import WelcomeScreen from "./components/WelcomeScreen/WelcomeScreen";
+import About from "./components/About/About";
+import OfferItem from "./components/OfferItem/OfferItem";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <WelcomeScreen />
+      <About />
+      <Slider amountOfItemsOnSlide={1} showArrows={true} showDots={true}>
+        <OfferItem typeOfPlan={"free"} />
+        <OfferItem typeOfPlan={"premium"} />
+        <OfferItem typeOfPlan={"enterprice"} />
+      </Slider>
+      <Contact />
+      <Footer />
     </div>
   );
 }

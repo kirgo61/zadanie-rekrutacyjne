@@ -36,7 +36,9 @@ const Slider = ({
   }, []);
 
   let width = window.innerWidth;
+
   //if window width is changed, update slide width
+
   const changeSlideSizeToSkip = () => {
     //while using google chrome on mobile scrolling launches resize event because of height changes, so i want to prevent that.
     if (width !== window.innerWidth) {
@@ -46,29 +48,39 @@ const Slider = ({
       setWidthToTranform(0);
     }
   };
+
   //to prevent hundreds of unnessesary resize calls I've used debounce function from lodash libary to launch function only after one second from width change
+
   const delayChangeSlideSizeToSkip = debounce(changeSlideSizeToSkip, 1000);
+
   window.addEventListener("resize", delayChangeSlideSizeToSkip);
+
   //slider moving handlers
   const moveLeftHandler = () => {
     setCurrentSlide(currentSlide - 1);
     setWidthToTranform(widthToTransform - (slideWidth + scrollBarWidth));
   };
+
   const moveRightHandler = () => {
     setWidthToTranform(widthToTransform + (slideWidth + scrollBarWidth));
     setCurrentSlide(currentSlide + 1);
   };
+
   const moveSlideWithDotHandler = (numberOfDot) => {
     setWidthToTranform(slideWidth * numberOfDot + scrollBarWidth * numberOfDot);
     setCurrentSlide(numberOfDot + 1);
   };
+
   //touch swipes handlers
+
   const touchStartHandler = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
+
   const touchMoveHandler = (e) => {
     setTouchEnd(e.targetTouches[0].clientX);
   };
+
   const touchEndHandler = () => {
     if (
       //if screen width is smaller than 500px make slider more sensitive to swipes
@@ -84,6 +96,7 @@ const Slider = ({
       moveLeftHandler();
     }
   };
+
   //function that automaticly moves slider
   const moveSlidesAutomaticallyHandler = () => {
     if (currentSlide === sortedItems.length) {
@@ -96,6 +109,7 @@ const Slider = ({
       clearInterval(interval);
     }
   };
+
   //calling interval with moving function
   const interval =
     autoPlay === true
@@ -109,6 +123,7 @@ const Slider = ({
     transform: `translateX(${widthToTransform * -1}px)`,
     transition: "1s",
   };
+
   return (
     <div ref={ref} className="slider-container">
       <div

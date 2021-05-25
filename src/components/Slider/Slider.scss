@@ -1,3 +1,11 @@
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: max-content;
+  overflow: hidden;
+  height: auto;
+}
 .slider-container {
   width: 100%;
   overflow: hidden;
@@ -32,12 +40,4 @@
   & i {
     margin-top: 1px;
   }
-}
-.slider {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: max-content;
-  overflow: hidden;
-  height: auto;
 }

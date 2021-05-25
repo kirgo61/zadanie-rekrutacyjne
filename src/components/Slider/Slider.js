@@ -71,14 +71,14 @@ const Slider = ({
   };
   const touchEndHandler = () => {
     if (
-      //if screen width is smaller than 500px allow make slider more sensitive to swipes
-      (touchStart - touchEnd > (window.innerWidth < 500 ? 25 : 75)) &
+      //if screen width is smaller than 500px make slider more sensitive to swipes
+      (touchStart - touchEnd > (window.innerWidth < 500 ? 75 : -100)) &
       (currentSlide < sortedItems.length)
     ) {
       moveRightHandler();
     } else if (
-      //if screen width is smaller than 500px allow make slider more sensitive to swipes
-      touchStart - touchEnd < (window.innerWidth < 500 ? -25 : -75) &&
+      //if screen width is smaller than 500px make slider more sensitive to swipes
+      touchStart - touchEnd < (window.innerWidth < 500 ? -75 : -100) &&
       currentSlide > 1
     ) {
       moveLeftHandler();
